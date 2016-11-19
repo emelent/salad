@@ -17,10 +17,12 @@
 
     border: 1px solid #000;
     background: plum;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
 
   .fs-container__box--focus{
     background: blue;
+    transform: scale(1.2); 
   }
 
   </style>
@@ -49,6 +51,7 @@ class FancySlider{
 
   shiftRight(n){
     this.focus = (this.focus + n) % this.getItemCount();
+    console.log('focus => ', this.focus);
     this.focusElement(this.element.children[this.focus]);
   }
 
