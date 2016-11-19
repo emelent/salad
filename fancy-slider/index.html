@@ -3,9 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>Fancy Slider</title>
-  <script src="../lib/babel.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+  .fs-container{
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .fs-container__box{
+    display: inline-block;
+    height: 100px;
+    width: 200px;
+
+    border: 1px solid #000;
+    background: plum;
+  }
+
+  .fs-container__box--focus{
+    background: blue;
+  }
+
+  </style>
 </head>
 <body>
-  
+
+  <div class="fs-container" id="slider">
+    <div class="fs-container__box">1</div>
+    <div class="fs-container__box">2</div>
+    <div class="fs-container__box">3</div>
+    <div class="fs-container__box">4</div>
+    <div class="fs-container__box">5</div>
+  </div>
+<script type="text/babel">
+
+class FancySlider{
+  constructor(el){
+    this.element = el;
+    this.focus = Math.floor(el.children.length/2);
+    this.focusElement(this.element.children[this.focus]);
+  }
+
+  getItemCount(){
+    return this.element.children.length;
+  }
+
+  shiftRight(n){
+    this.focus = (this.focus + n) % this.getItemCount();
+    this.focusElement(this.element.children[this.focus]);
+  }
+
+  shiftLeft(n){
+    this.focus = (this.focus - n) % this.getItemCount();
+    this.focusElement(this.element.children[this.focus]);
+  }
+
+  unfocusAllElements(){
+    Array.from(this.element.children).forEach((el) =>{
+      this.unfocusElement(el);
+    });
+  }
+
+  unfocusElement(el){
+    if(!el) return;
+    el.classList.remove('fs-container__box--focus');
+  }
+
+  focusElement(el){
+    if(!el) return;
+    this.unfocusAllElements();
+    el.classList.add('fs-container__box--focus');
+  }
+}; 
+let fancy = new FancySlider(document.getElementById('slider'));
+</script>
 </body>
 </html>
