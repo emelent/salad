@@ -42,7 +42,6 @@ var FancySlider = (function(){
   function FancySlider(el){
     this.element = el;
     this.focus = Math.floor(el.children.length/2);
-    console.log('focusing on element => ', this.focus + 1);
     this.updateChildren();
   }
 
@@ -51,14 +50,20 @@ var FancySlider = (function(){
   };
 
   FancySlider.prototype.shiftRight = function(n){
+    if(this.focus + n > this.getItemCount()-1)
+      return;
     this.focus = (this.focus + n) % this.getItemCount();
     console.log('focusing on element => ', this.focus + 1);
     this.updateChildren();
   };
 
   FancySlider.prototype.shiftLeft = function (n){
-    console.log('focusing on element => ', this.focus + 1);
+    if(this.focus - n < 0)
+      return;
+    console.log('focusing on element => ', this.focus);
     this.focus = (this.focus - n) % this.getItemCount();
+    if(this.focus < 0)
+      this.focus = 0;
     this.updateChildren();
   };
 
