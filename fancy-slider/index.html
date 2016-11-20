@@ -6,6 +6,7 @@
   <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
   <!--<script src="/lib/babel.min.js"></script>-->
   <style>
+
   .fs-container{
     margin-top: 100px;
     text-align: center;
@@ -16,14 +17,17 @@
     position: relative;
     z-index: 1;
 
-    height: 150px;
+    height: 180px;
     width: 300px;
 
-    /*border: 3px solid #000;*/
-    background: plum;
+    background-color: #000;
+    /*background-image: url('/locked2.png');*/
+    background-size: 100%;
+    background-repeat: no-repeat;
     /*transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/
     transition: linear all 0.3s;
   }
+
   </style>
 </head>
 <body>
@@ -34,15 +38,13 @@
     <div class="fs-container__box">3</div>
     <div class="fs-container__box">4</div>
     <div class="fs-container__box">5</div>
-    <div class="fs-container__box">6</div>
   </div>
 <script>
-
-"strict";
 var FancySlider = (function(){
   "use strict";
-  function FancySlider(el){
+  function FancySlider(el, depth=2){
     this.element = el;
+    this.depth =  depth;
     this.focus = Math.floor(el.children.length/2);
     this.animateTimer = null;
     this.createClickEvents();
@@ -53,7 +55,7 @@ var FancySlider = (function(){
     var that = this;
     Array.from(this.element.children).forEach(function(el, i){
       el.onclick = function(){
-        that.animatedShift(-(that.focus - i));
+        that.shiftAnimated(-(that.focus - i));
       };
     });
   };
@@ -91,7 +93,7 @@ var FancySlider = (function(){
       this.shiftRight(n);
   };
 
-  FancySlider.prototype.animatedShift = function(n){
+  FancySlider.prototype.shiftAnimated = function(n){
     if(this.animateTimer !== null) return;
 
     var len = Math.abs(n);
@@ -120,13 +122,16 @@ var FancySlider = (function(){
     Array.from(this.element.children).forEach(function(el, i){
       var dist = that.getDistFromFocus(i);
       var scale = (dist == 0)? 1.3: Math.pow(0.8, dist);
-      var margin = (dist > 1)? -100 : 0;
       var gray = (dist == 0)? 0 : 50 + (15 * (dist-1)) ;
+      var margin = (dist > 1)? -100 : 0;
+      margin = (dist > that.depth)? -200: margin;
+      scale= (dist > that.depth)? 0: scale;
       //update styles
       el.style.transform = 'scale(' + scale + ')';
       el.style.zIndex = Math.floor(that.getItemCount() / 2) - dist;
       el.style.margin = '' + margin + 'px';
       el.style.filter = 'grayscale(' + gray + '%)';
+
     });
   }
 
