@@ -42,10 +42,20 @@ var FancySlider = (function(){
   function FancySlider(el){
     this.element = el;
     this.focus = Math.floor(el.children.length/2);
-    this.updateChildren();
     this.animateTimer = null;
+    this.createClickEvents();
+    this.updateChildren();
   }
 
+  FancySlider.prototype.createClickEvents = function(){
+    var that = this;
+    Array.from(this.element.children).forEach(function(el, i){
+      el.onclick = function(){
+        that.animatedShift(-(that.focus - i));
+      };
+    });
+  };
+  
   FancySlider.prototype.getItemCount = function(){
     return this.element.childElementCount;
   };
