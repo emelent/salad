@@ -43,7 +43,7 @@ var FancySlider = (function(){
     this.element = el;
     this.focus = Math.floor(el.children.length/2);
     console.log('focusing on element => ', this.focus + 1);
-    this.focusElement(this.element.children[this.focus]);
+    this.updateChildren();
   }
 
   FancySlider.prototype.getItemCount = function(){
@@ -53,34 +53,31 @@ var FancySlider = (function(){
   FancySlider.prototype.shiftRight = function(n){
     this.focus = (this.focus + n) % this.getItemCount();
     console.log('focusing on element => ', this.focus + 1);
-    this.focusElement(this.element.children[this.focus]);
+    this.updateChildren();
   };
 
   FancySlider.prototype.shiftLeft = function (n){
     console.log('focusing on element => ', this.focus + 1);
     this.focus = (this.focus - n) % this.getItemCount();
-    this.focusElement(this.element.children[this.focus]);
+    this.updateChildren();
   };
 
-  FancySlider.prototype.unfocusAllElements = function(){
+  FancySlider.prototype.getDistFromFocus = function(i){
+    return Math.abs(i - this.focus);
+  };
+
+  FancySlider.prototype.updateChildren = function(){
+    var factor = 0.8;
     var that = this;
-    Array.from(this.element.children).forEach(function(el){
-      that.unfocusElement(el);
+    Array.from(this.element.children).forEach(function(el, i){
+      var dist = that.getDistFromFocus(i);
+      var scale = (dist == 0)? 1:Math.pow(0.8, dist);
+      el.style.transform = 'scale(' + scale + ')';
+      el.style.zIndex = (dist == 0)? '2':'1';
+      console.log('i => ', i);
     });
-  };
-
-  FancySlider.prototype.unfocusElement = function(el){
-    if(!el) return;
-    el.style.transform = 'scale(1)';
-    el.style.zIndex = '1';
-  };
-
-  FancySlider.prototype.focusElement = function(el){
-    if(!el) return;
-    this.unfocusAllElements();
-    el.style.transform = 'scale(1.2)';
-    el.style.zIndex = '2';
-  };
+    
+  }
 
   return FancySlider;
 }()); 
