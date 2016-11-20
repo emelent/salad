@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Fancy Slider</title>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
+  <!--<script src="/lib/babel.min.js"></script>-->
   <style>
   .fs-container{
     margin-top: 100px;
@@ -19,12 +20,6 @@
     background: plum;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
-
-  .fs-container__box--focus{
-    background: blue;
-    transform: scale(1.2); 
-  }
-
   </style>
 </head>
 <body>
@@ -36,48 +31,53 @@
     <div class="fs-container__box">4</div>
     <div class="fs-container__box">5</div>
   </div>
-<script type="text/babel">
+<script>
 
-class FancySlider{
-  constructor(el){
+"strict";
+var FancySlider = (function(){
+  "use strict";
+  function FancySlider(el){
     this.element = el;
     this.focus = Math.floor(el.children.length/2);
     this.focusElement(this.element.children[this.focus]);
   }
 
-  getItemCount(){
+  FancySlider.prototype.getItemCount = function(){
     return this.element.children.length;
-  }
+  };
 
-  shiftRight(n){
+  FancySlider.prototype.shiftRight = function(n){
     this.focus = (this.focus + n) % this.getItemCount();
-    console.log('focus => ', this.focus);
     this.focusElement(this.element.children[this.focus]);
-  }
+  };
 
-  shiftLeft(n){
+  FancySlider.prototype.shiftLeft = function (n){
     this.focus = (this.focus - n) % this.getItemCount();
     this.focusElement(this.element.children[this.focus]);
-  }
+  };
 
-  unfocusAllElements(){
-    Array.from(this.element.children).forEach((el) =>{
-      this.unfocusElement(el);
+  FancySlider.prototype.unfocusAllElements = function(){
+    var that = this;
+    Array.from(this.element.children).forEach(function(el){
+      that.unfocusElement(el);
     });
-  }
+  };
 
-  unfocusElement(el){
+  FancySlider.prototype.unfocusElement = function(el){
     if(!el) return;
-    el.classList.remove('fs-container__box--focus');
-  }
+    el.style.transform = 'scale(1)';
+  };
 
-  focusElement(el){
+  FancySlider.prototype.focusElement = function(el){
     if(!el) return;
     this.unfocusAllElements();
-    el.classList.add('fs-container__box--focus');
-  }
-}; 
-let fancy = new FancySlider(document.getElementById('slider'));
+    el.style.transform = 'scale(1.2)';
+  };
+
+  return FancySlider;
+}()); 
+
+var fancy = new FancySlider(document.getElementById('slider'));
 </script>
 </body>
 </html>
