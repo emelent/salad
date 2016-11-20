@@ -55,7 +55,7 @@ var FancySlider = (function(){
       };
     });
   };
-  
+
   FancySlider.prototype.getItemCount = function(){
     return this.element.childElementCount;
   };
@@ -92,14 +92,19 @@ var FancySlider = (function(){
   };
 
   FancySlider.prototype.animatedShift = function(n){
-    if(this.animateTimer !== null)
-      return;
+    if(this.animateTimer !== null) return;
+
     var len = Math.abs(n);
+    if(len === 0) return;
     var that = this;
+    if(n < 0) that.shiftLeft(1);
+    else that.shiftRight(1);
+    len --;
     this.animatedTimer = setInterval(function () {
-        if(len <= 1){
+        if(len < 1){
           clearInterval(that.animatedTimer);
           that.animatedTimer = null;
+          return;
         }
 
         if(n < 0) that.shiftLeft(1);
