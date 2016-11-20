@@ -43,6 +43,7 @@ var FancySlider = (function(){
     this.element = el;
     this.focus = Math.floor(el.children.length/2);
     this.updateChildren();
+    this.animateTimer = null;
   }
 
   FancySlider.prototype.getItemCount = function(){
@@ -50,6 +51,7 @@ var FancySlider = (function(){
   };
 
   FancySlider.prototype.shiftRight = function(n){
+    n = Math.abs(n);
     if(this.focus + n > this.getItemCount()-1)
       return;
     this.focus = (this.focus + n) % this.getItemCount();
@@ -58,6 +60,7 @@ var FancySlider = (function(){
   };
 
   FancySlider.prototype.shiftLeft = function (n){
+    n = Math.abs(n);
     if(this.focus - n < 0)
       return;
     console.log('focusing on element => ', this.focus);
@@ -69,6 +72,30 @@ var FancySlider = (function(){
 
   FancySlider.prototype.getDistFromFocus = function(i){
     return Math.abs(i - this.focus);
+  };
+
+  FancySlider.prototype.shift = function(n){
+    if(n < 0)
+      this.shiftLeft(n);
+    else
+      this.shiftRight(n);
+  };
+
+  FancySlider.prototype.animatedShift = function(n){
+    if(this.animateTimer !== null)
+      return;
+    var len = Math.abs(n);
+    var that = this;
+    this.animatedTimer = setInterval(function () {
+        if(len <= 1){
+          clearInterval(that.animatedTimer);
+          that.animatedTimer = null;
+        }
+
+        if(n < 0) that.shiftLeft(1);
+        else that.shiftRight(1);
+        len --;
+    }, 300);
   };
 
   FancySlider.prototype.updateChildren = function(){
@@ -87,7 +114,7 @@ var FancySlider = (function(){
   }
 
   return FancySlider;
-}()); 
+}());
 
 var fancy = new FancySlider(document.getElementById('slider'));
 </script>
