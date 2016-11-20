@@ -71,12 +71,14 @@ var FancySlider = (function(){
     var that = this;
     Array.from(this.element.children).forEach(function(el, i){
       var dist = that.getDistFromFocus(i);
-      var scale = (dist == 0)? 1:Math.pow(0.8, dist);
+      var scale = (dist == 0)? 1.3:Math.pow(0.8, dist);
+      var margin = (dist > 1)? -100:0;
+
+      //update styles
       el.style.transform = 'scale(' + scale + ')';
-      el.style.zIndex = (dist == 0)? '2':'1';
-      console.log('i => ', i);
+      el.style.zIndex = Math.floor(that.getItemCount() / 2) - dist;
+      el.style.margin = margin + 'px';
     });
-    
   }
 
   return FancySlider;
