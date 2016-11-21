@@ -3,142 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Fancy Slider</title>
-  <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
-  <!--<script src="/lib/babel.min.js"></script>-->
-  <style>
-
-  .fs-container{
-    margin-top: 100px;
-    text-align: center;
-  }
-
-  .fs-container__box{
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-
-    height: 180px;
-    width: 300px;
-
-    background-color: #000;
-    /*background-image: url('/locked2.png');*/
-    background-size: 100%;
-    background-repeat: no-repeat;
-    /*transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/
-    transition: linear all 0.3s;
-  }
-
-  </style>
+  <link rel="stylesheet" href="./fancy-slider.css">
 </head>
 <body>
-
   <div class="fs-container" id="slider">
     <div class="fs-container__box">1</div>
     <div class="fs-container__box">2</div>
     <div class="fs-container__box">3</div>
     <div class="fs-container__box">4</div>
     <div class="fs-container__box">5</div>
+    <div class="fs-container__box">6</div>
+    <div class="fs-container__box" style="background-image: url('/map1.jpg')">7</div>
   </div>
+<script src="./fancy-slider.js"></script>
 <script>
-var FancySlider = (function(){
-  "use strict";
-  function FancySlider(el, depth=2){
-    this.element = el;
-    this.depth =  depth;
-    this.focus = Math.floor(el.children.length/2);
-    this.animateTimer = null;
-    this.createClickEvents();
-    this.updateChildren();
-  }
-
-  FancySlider.prototype.createClickEvents = function(){
-    var that = this;
-    Array.from(this.element.children).forEach(function(el, i){
-      el.onclick = function(){
-        that.shiftAnimated(-(that.focus - i));
-      };
-    });
-  };
-
-  FancySlider.prototype.getItemCount = function(){
-    return this.element.childElementCount;
-  };
-
-  FancySlider.prototype.shiftRight = function(n){
-    n = Math.abs(n);
-    if(this.focus + n > this.getItemCount()-1)
-      return;
-    this.focus = (this.focus + n) % this.getItemCount();
-    this.updateChildren();
-  };
-
-  FancySlider.prototype.shiftLeft = function (n){
-    n = Math.abs(n);
-    if(this.focus - n < 0)
-      return;
-    this.focus = (this.focus - n) % this.getItemCount();
-    if(this.focus < 0)
-      this.focus = 0;
-    this.updateChildren();
-  };
-
-  FancySlider.prototype.getDistFromFocus = function(i){
-    return Math.abs(i - this.focus);
-  };
-
-  FancySlider.prototype.shift = function(n){
-    if(n < 0)
-      this.shiftLeft(n);
-    else
-      this.shiftRight(n);
-  };
-
-  FancySlider.prototype.shiftAnimated = function(n){
-    if(this.animateTimer !== null) return;
-
-    var len = Math.abs(n);
-    if(len === 0) return;
-    var that = this;
-    if(n < 0) that.shiftLeft(1);
-    else that.shiftRight(1);
-    len --;
-    var wait = 300/len;
-    this.animatedTimer = setInterval(function () {
-        if(len < 1){
-          clearInterval(that.animatedTimer);
-          that.animatedTimer = null;
-          return;
-        }
-
-        if(n < 0) that.shiftLeft(1);
-        else that.shiftRight(1);
-        len --;
-    }, wait);
-  };
-
-  FancySlider.prototype.updateChildren = function(){
-    var factor = 0.8;
-    var that = this;
-    Array.from(this.element.children).forEach(function(el, i){
-      var dist = that.getDistFromFocus(i);
-      var scale = (dist == 0)? 1.3: Math.pow(0.8, dist);
-      var gray = (dist == 0)? 0 : 50 + (15 * (dist-1)) ;
-      var margin = (dist > 1)? -100 : 0;
-      margin = (dist > that.depth)? -200: margin;
-      scale= (dist > that.depth)? 0: scale;
-      //update styles
-      el.style.transform = 'scale(' + scale + ')';
-      el.style.zIndex = Math.floor(that.getItemCount() / 2) - dist;
-      el.style.margin = '' + margin + 'px';
-      el.style.filter = 'grayscale(' + gray + '%)';
-
-    });
-  }
-
-  return FancySlider;
-}());
-
-var fancy = new FancySlider(document.getElementById('slider'));
+  var fancy = new FancySlider(document.getElementById('slider'), 3);
 </script>
 </body>
 </html>

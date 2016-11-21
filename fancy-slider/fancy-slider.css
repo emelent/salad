@@ -1,0 +1,20 @@
+.fs-container{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.fs-container__box{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+  height: 180px;
+  width: 300px;
+
+  background-color: #000;
+  background-image: url('/locked2.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /*transition: all 0.3s cubic-bezier(.25,.8,.25,1);*/
+  transition: linear all 0.3s;
+}
