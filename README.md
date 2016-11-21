@@ -11,7 +11,7 @@ Either copy salad to your local server or serve the directory using something li
 builtin SimpleHTTPServer:
 
 -   `cd salad`
--   `python -m SimpleHttpServer`(python2) or `python -m or http.server`(python3)
+-   `python -m SimpleHttpServer`(python2) or `python -m http.server`(python3)
 -   Open http://localhost:8000 in your browser
 
 #### Fancy Slider ####
