@@ -182,7 +182,7 @@ var FancySlider = (function(){
       el.style.zIndex = Math.floor(that.getChildCount() / 2) - dist;
       el.style.margin = '' + margin + 'px';
       el.style.filter = 'grayscale(' + gray + '%)';
-      
+
       ///toggle css class
       if(dist == 0)
         el.classList.add('fs-container__box--focused');
@@ -194,3 +194,7 @@ var FancySlider = (function(){
   return FancySlider;
 }());
 
+// Export module
+ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+   module.exports = FancySlider;
+ }
