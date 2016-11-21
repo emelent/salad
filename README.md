@@ -7,7 +7,7 @@
 
 -   `git clone https://github.com/emelent/salad`
 
-Either salad to your local server or serve the directory using something like python's
+Either copy salad to your local server or serve the directory using something like python's
 builtin SimpleHTTPServer:
 
 -   `cd salad`
