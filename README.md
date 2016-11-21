@@ -12,7 +12,7 @@ builtin SimpleHTTPServer:
 
 -   `cd salad`
 -   `python -m SimpleHttpServer`(python2) or `python -m http.server`(python3)
--   Open http://localhost:8000 in your browser
+-   Open [http://localhost:8000](http://localhost:8000) in your browser
 
 #### Fancy Slider ####
 -   A generic slider, meant to use css3 and js to provide a smooth and fancy sliding experience
