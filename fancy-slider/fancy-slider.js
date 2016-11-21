@@ -177,11 +177,17 @@ var FancySlider = (function(){
       margin = (dist > that.depth)? -200: margin;
       scale= (dist > that.depth)? 0: scale;
 
-      //update element style
+      ///update element style
       el.style.transform = 'scale(' + scale + ')';
       el.style.zIndex = Math.floor(that.getChildCount() / 2) - dist;
       el.style.margin = '' + margin + 'px';
       el.style.filter = 'grayscale(' + gray + '%)';
+      
+      ///toggle css class
+      if(dist == 0)
+        el.classList.add('fs-container__box--focused');
+      else
+        el.classList.remove('fs-container__box--focused');
     });
   }
 
