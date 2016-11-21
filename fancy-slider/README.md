@@ -5,11 +5,13 @@
     to help you understand what's going on should you feel lost. 
 
 
-## Known Bugs ##
+## Known Issues ##
 -   You'll notice the numbers in the divs in index.html, well, for some odd reason the 
     layout kinda messes up without any text elements inside those divs. I have no idea 
     why, and didn't feel like going through headaches trying to fixing it right now, I 
     mean it's not that bad right?
+-   It doesn't handle overflow really well yet, since the sizes of elements are based
+    on fixed values as opposed to fluid values based on available screen space.
 
 ## Tweaking ##
 -   Most of the "animation", or more accurately styling, is done in 
