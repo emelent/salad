@@ -1,0 +1,87 @@
+body{
+  margin: 0;
+}
+
+.s-navbar{
+  display: flex;
+
+  min-height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #4793E6;
+  color: #fff;
+}
+
+.s-navbar__col{
+  flex: 1;
+
+  box-sizing: border-box;
+
+  border: 3px solid #000;
+}
+
+.s-navbar__left{
+  text-align: left;
+}
+
+.s-navbar__center{
+  text-align: center;
+}
+
+.s-navbar__right{
+  text-align: right;
+}
+
+.s-navbar__brand
+.s-navbar__logo,
+.s-navbar__item{
+  display: inline-block;
+  margin: 0.2em;
+}
+
+.s-nav-menu{
+  display: none;
+  box-sizing: border-box;
+}
+
+/*Menu Stacks*/
+.s-stack{
+  display: none;
+  float: right;
+  box-sizing: border-box;
+
+  height: 40px;
+  padding: 5px;
+
+  cursor: pointer;
+}
+
+.s-stack__bar{
+  display: block;
+
+  height: 3px;
+  width: 35px;
+  margin: 5px 0;
+
+  background: #fff;
+  transition: ease all 0.4s;
+}
+
+.s-stack__bar:first-child{
+  margin-top: 12px;
+}
+.s-stack__bar--active:first-child{
+  margin-top: 15px;
+  transform: rotateZ(45deg);
+}
+
+.s-stack__bar--active:nth-child(2){
+  margin-top: -8px;
+  transform: rotateZ(-45deg);
+}
+
+.s-stack__bar--active:nth-child(3){
+  opacity: 0;
+}
+
