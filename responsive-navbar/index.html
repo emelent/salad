@@ -10,37 +10,24 @@
 <body>
   <!--Navbar container-->
   <div id="navbar" class="s-navbar">
-    <!--Navbar columns-->
-    <div class="s-navbar__col s-navbar__left">
-      <img class="s-navbar__logo" src="" alt="navbar logo" />
-      <span class="s-navbar__brand">Brand</span>
-    </div>
-    <div class="s-navbar__col s-navbar__center">
-      <input class="s-navbar__item" type="text" />
-      <input class="s-navbar__item" type="button" value="Go" />
-    </div>
-    <div class="s-navbar__col s-navbar__right">
-      <span class="s-navbar__item">Option 1</span>
-      <span class="s-navbar__item">Option 2</span>
-      <span class="s-navbar__item">Option 3</span>
-      <div class="s-stack">
-        <span class="s-stack__bar"></span>
-        <span class="s-stack__bar"></span>
-        <span class="s-stack__bar"></span>
+    <img class="s-navbar__brand-image" src="../images/hello-kitty.svg" alt="">
+    <div class="s-navbar__row s-navbar__row-main">
+      <div class="s-search-box">
+        <input class="s-search-box__input" type="text">
+        <button class="s-search-box__btn">
+          <img src="../images/search.svg" alt="">
+        </button>
       </div>
-    </div>
+      <span class="s-navbar__item float-right">Option 2</span>
+      <span class="s-navbar__item float-right">Option 1</span>
 
-    <!--Navbar menu, only shown on tablet and mobile screen sizes-->
-    <div class="s-nav-menu">
-      <span class="s-nav-menu__item">1</span>
-      <span class="s-nav-menu__item">2</span>
-      <span class="s-nav-menu__item">3</span>
-      <span class="s-nav-menu__item">4</span>
+    </div>
+    <div class="s-navbar__row s-navbar__row-sub">
+      <span class="s-navbar__item s-show-all">Type 1</span>
+      <span class="s-navbar__item">Type 2</span>
+      <span class="s-navbar__item">Type 3</span>
+      <span class="s-navbar__item">Type 4</span>
     </div>
   </div>
-  <script src="./responsive-navbar.js"></script>
-  <script>
-    var navbar = new ResponsiveNavbar(document.getElementById('navbar'));
-  </script>
 </body>
 </html>
