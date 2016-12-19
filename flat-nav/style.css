@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+  padding: 0px;
+  margin: 0px;
+  background: #efefef;
+  box-sizing: border-box;
+  font-family: Raleway;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+*:active, *:focus{
+  outline: none;
+}
+
+.flat-nav{
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+
+  text-align: center;
+  background: #7986CB;
+  /*background: url('./bg2.jpg');*/
+  /*background-size: 100%;*/
+}
+
+.flat-nav__item{
+  margin: 0 5px;
+}
+
+.flat-nav__left{
+  float: left;
+}
+
+.flat-nav__right{
+  float: right;
+}
+
+.flat-nav__item img{
+  width: 55px;
+}
+
+.search-box{
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  padding: 5px;
+  color: rgba(255,255,255,0.6);
+}
+
+.search-box input{
+  background: none;
+  border: none;
+  overflow: hidden;
+  color: #fff;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #f5f2e6;
+  color: #7986CB;
+  text-transform: uppercase;
+  cursor: pointer;
+}

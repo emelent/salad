@@ -19,3 +19,6 @@ builtin SimpleHTTPServer:
 
 #### Responsive Navbar ####
 -   A plain ol' responsive navbar
+
+#### Card Designs ####
+-   A couple of clean looking card designs
