@@ -1,0 +1,47 @@
+.menu-stack{
+  position: fixed;
+  opacity: 0;
+  cursor: pointer;
+  height: 40px;
+  padding: 13px 5px;
+  right: 0px;
+  top: 0px;
+  background: none;
+  height: 60px;
+  width: 50px;
+  display: none;
+  transition: cubic-bezier(.17,.67,.17,.88) opacity 0.4s;
+  transition-delay: 0.4s;
+}
+
+.menu-stack--visible{
+  display: block;
+  background: #fff;
+  opacity: 1;
+  z-index: 11;
+}
+
+.menu-stack__span{
+  display: block;
+  height: 3px;
+  width: 35px;
+  background: #555;
+  margin: 5px 0;
+  transition: cubic-bezier(.17,.67,.17,.88) margin 0.3s,
+    cubic-bezier(.17,.67,.17,.88) transform 0.3s;
+  /*transition-delay: 0.5s;*/
+}
+
+.menu-stack--active span:nth-child(1){
+  margin-top: 15px;
+  transform: rotateZ(45deg);
+}
+
+.menu-stack--active span:nth-child(2){
+  margin-top: -8px;
+  transform: rotateZ(-45deg);
+}
+
+.menu-stack--active span:nth-child(3){
+  opacity: 0;
+}
