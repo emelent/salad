@@ -87,7 +87,7 @@ a{
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 10;
+  z-index: 9;
   background: rgba(255,255,255,0.8);
 }
 
@@ -240,6 +240,43 @@ a{
 
 .button:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.menu{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #fff;
+  width: 100%;
+  overflow: hidden;
+  height: 0px;
+  z-index: 10;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(.17,.67,.17,.88);
+}
+
+.menu--active{
+  height: 100vh;
+}
+
+.menu__title{
+  margin: 10px 20px;
+  font-size: 2em;
+}
+
+.menu__item{
+  cursor: pointer;
+  padding: 15px 20px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.menu__item:hover{
+  color: #0097A7;
+}
+
+.menu__blank{
+  height: 20px;
 }
 
 /*phones*/

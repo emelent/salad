@@ -1,7 +1,7 @@
 $('.menu-stack').click(function(e){
   $('.menu-stack').toggleClass('menu-stack--active');
   $('.container').toggleClass('container--inactive');
-  $('.slide-menu').toggleClass('slide-menu--active');
+  $('.menu').toggleClass('menu--active');
 });
 $('.slide-menu__title').click(function(e){
   $('.menu-stack').removeClass('menu-stack--active');
