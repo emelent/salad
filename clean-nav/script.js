@@ -39,3 +39,7 @@ $('.searchbox input').on('focus', function(){
     $('.cat--active').click();
   }, 400);
 });
+
+$(function(){
+  $('.cat--active').click();
+})

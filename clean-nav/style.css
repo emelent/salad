@@ -4,9 +4,10 @@ body{
   padding: 0px;
   margin: 0px;
   background: #efefef;
-  background: #fff;
+  /*background: #fff;*/
   box-sizing: border-box;
   font-family: Raleway;
+  text-align: center;
 }
 
 *, *:before, *:after {
@@ -21,19 +22,8 @@ a{
   text-decoration: none;
 }
 
-.container{
-  background: #efefef;
-  min-height: 100vh;
-  transition: cubic-bezier(.17,.67,.17,.88) transform 0.4s;
-  transition-delay: 0.2s;
-}
-
-.container--inactive{
-  transform: translateX(-45%);
-}
-
 .header{
-  height: 80vh;
+  height: 100vh;
   min-height: 500px;
   /*min-height: 100vh;*/
   width: 100%;
@@ -41,12 +31,14 @@ a{
   background: url('bg1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar{
   display: inline-block;
   height: 50px;
   padding-top: 10px;
+  margin-top: 10px;
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -86,6 +78,16 @@ a{
   overflow: hidden;
   margin-top: 20px;
   padding: 0 20px;
+}
+
+.searchbar--nav{
+  margin: 0px;
+  padding: 0;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background: #fff;
 }
 
 .searchbox{
@@ -138,7 +140,7 @@ a{
   height: 100%;
   background: rgba(255,255,255,0.9);
   overflow: hidden;
-  /*text-align: right;*/
+  text-align: left;
 }
 
 .cat{
@@ -170,55 +172,16 @@ a{
   text-shadow: none;
   color: #0097A7;
   background: #fff;
-  padding: 5px 10px;
-  border-radius: 3px;
+  padding: 15px 12px;
+  border-radius: 0px;
+  font-size: 0.8em;
+  text-transform: uppercase;
   transition: cubic-bezier(.17,.67,.17,.88) all 0.4s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .button:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.slide-menu{
-  position: fixed;
-  right: -100%;
-  top: 0px;
-  opacity: 0;
-  width: 45%;
-  min-height: 100vh;
-  background: #fff;
-  transition: cubic-bezier(.17,.67,.17,.88) right 0.4s;
-}
-
-.slide-menu--active{
-  right: 0px;
-  opacity: 1;
-}
-
-.slide-menu__title{
-  padding: 20px;
-  font-size: 1.4em;
-  cursor: pointer;
-}
-
-.slide-menu__item{
-  padding: 15px;
-  cursor: pointer;
-  transition: cubic-bezier(.17,.67,.17,.88) all 0.4s;
-}
-
-.slide-menu__spacer{
-  padding: 5px;
-  cursor: auto;
-}
-
-.slide-menu__spacer:hover{
-  background: none;
-}
-
-.slide-menu__item:hover{
-  background: #0097A7;
 }
 
 /*phones*/
