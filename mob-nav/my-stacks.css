@@ -1,0 +1,34 @@
+.menu-stack{
+  display: inline-block;
+  cursor: pointer;
+  height: 40px;
+  padding: 5px;
+}
+
+.menu-stack__span{
+  display: block;
+  height: 3px;
+  width: 35px;
+  background: #000;
+  margin: 5px 0;
+  transition: cubic-bezier(.17,.67,.17,.88) all 0.4s;
+  /*transition-delay: 0.5s;*/
+}
+
+.menu-stack--active span:nth-child(1){
+  margin-top: 15px;
+  transform: rotateZ(45deg);
+}
+
+.menu-stack--active span:nth-child(2){
+  margin-top: -8px;
+  transform: rotateZ(-45deg);
+}
+
+.menu-stack--active span:nth-child(3){
+  opacity: 0;
+}
+
+.searchbox{
+  width: 100%;
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('../css/fonts.css');
 
 body{
   background: #90CAF9;
@@ -11,9 +11,6 @@ body{
   box-sizing: inherit;
 }
 
-div{
-  display: inherit;
-}
 
 *:active, *:focus{
   outline: none;
@@ -21,6 +18,7 @@ div{
 
 
 .card-1{
+  display: inline-block;
   position: relative;
 
   height: 280px;
@@ -79,6 +77,7 @@ div{
   padding: 28px 10px;
 
   overflow: hidden;
+  text-align: left;
 }
 
 .card-1__btn{
@@ -105,6 +104,7 @@ div{
 
 .card-2{
   position: relative;
+  display: inline-block;
 
   height: 280px;
   width: 230px;
@@ -159,7 +159,8 @@ div{
 
   width: 80%;
   height: 30%;
-  padding: 28px 10px;
+  padding: 8px;
+  text-align: left;
 
   overflow: hidden;
 }
@@ -188,6 +189,7 @@ div{
 
 .card-3{
   position: relative;
+  display: inline-block;
 
   height: 280px;
   width: 230px;
@@ -265,6 +267,7 @@ div{
 }
 
 .card-4{
+  display: inline-block;
   position: relative;
 
   height: 280px;
@@ -344,6 +347,7 @@ div{
 
 
 .card-5{
+  display: inline-block;
   position: relative;
 
   height: 280px;
@@ -393,13 +397,13 @@ div{
 .card-5__detail{
   position: absolute;
 
-  bottom: 0px;
+  top: 65%;
   left: 0px;
 
   width: 80%;
   height: 30%;
   padding: 28px 10px;
-
+  text-align: left;
   overflow: hidden;
 }
 
@@ -441,6 +445,7 @@ div{
 
 
 .card-6{
+  display: inline-block;
   position: relative;
 
   height: 280px;
@@ -490,6 +495,7 @@ div{
 
 .card-6__detail{
   position: absolute;
+  text-align: left;
 
   bottom: 0px;
   left: 0px;
@@ -567,7 +573,7 @@ div{
   width: 100%;
   height: 100%;
 
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.6);
 }
 
 .card-6__bg>img{
@@ -587,6 +593,7 @@ div{
 
   overflow: hidden;
   color: #fff;
+  z-index: 1;
 }
 
 
