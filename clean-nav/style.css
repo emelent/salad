@@ -78,6 +78,7 @@ a{
   overflow: hidden;
   margin-top: 20px;
   padding: 0 20px;
+  transition: all 0.4s cubic-bezier(.17,.67,.17,.88);
 }
 
 .searchbar--nav{
@@ -86,8 +87,12 @@ a{
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 2;
-  background: #fff;
+  z-index: 10;
+  background: rgba(255,255,255,0.8);
+}
+
+.searchbar--nav .catbox, .searchbar--nav .dropdown-catbox{
+  margin-right: 50px;
 }
 
 .searchbox{
@@ -156,9 +161,62 @@ a{
   height: 10px;
   width: 70px;
   background: #0097A7;
-  transition: cubic-bezier(.17,.67,.17,.88) left 0.4s,
-    cubic-bezier(.17,.67,.17,.88) width 0.3s;
+  transition:  left 0.4s cubic-bezier(.17,.67,.17,.88),
+    width 0.4s cubic-bezier(.17,.67,.17,.88);
 }
+
+.dropdown-catbox{
+  position: relative;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  overflow: hidden;
+  text-align: left;
+}
+
+.drop-cat-title{
+  text-align: center;
+  min-width: 22px;
+  transition:  all 0.4s cubic-bezier(.17,.67,.17,.88);
+  /*cursor: pointer;*/
+}
+.drop-cat-title:hover{
+  color: #0097A7;
+}
+.dropdown-catbox--active .drop-cat-title{
+  transform: rotateZ(180deg);
+}
+
+.dropdown-catbox--active .drop-cat-list{
+  /*opacity: 1;*/
+  transform: scaleY(1);
+  z-index: 12;
+}
+
+.drop-cat-list{
+  position: fixed;
+  background: #fff;
+  transform-origin: top;
+  transform: scaleY(0);
+  /*opacity: 0;*/
+  transition:  transform 0.1s cubic-bezier(.17,.67,.17,.88);
+}
+
+
+.drop-cat{
+  height: 100%;
+  padding: 0 20px;
+  cursor: pointer;
+  border-left:4px solid transparent;
+}
+
+.drop-cat:hover{
+  border-color:#0097A7;
+}
+
+.drop-cat--active{
+  border-color:#0097A7;
+}
+
 
 .description{
   font-size: 2em;
@@ -189,24 +247,49 @@ a{
   .sign-up-login{
     display: none;
   }
+  
+  .searchbox--active{
+    background: #fff;
+    width: 70%;
+  }
+  .hide-sm-down{
+    display: none !important;
+  }
 
-  /*.slide-menu{*/
-    /*width: 80%;*/
-  /*}*/
-
-  /*.container--inactive{*/
-    /*transform: translateX(-80%);*/
-  /*}*/
+  .hide-sm-up{
+    display: inherit;
+  }
 }
 
 /*tablet*/
 @media (min-width:768px) and (max-width:991px) {
+  .hide-sm-down{
+    display: none !important;
+  }
+
+  .hide-sm-up{
+    display: inherit;
+  }
 }
 
 /*monitor*/
 @media (min-width:992px) and (max-width:1199px) {
+  .hide-sm-down{
+    display: inherit;
+  }
+
+  .hide-sm-up{
+    display: none !important;
+  }
 }
 
 /*large monitor*/
 @media (min-width:1200px) {
+  .hide-sm-down{
+    display: inherit;
+  }
+
+  .hide-sm-up{
+    display: none !important;
+  }
 }

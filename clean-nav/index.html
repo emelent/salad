@@ -10,6 +10,16 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <!-- Menu Button -->
+  <div class="menu-stack nav-item-right">
+    <span class="menu-stack__span"></span>
+    <span class="menu-stack__span"></span>
+    <span class="menu-stack__span"></span>
+  </div>
+  <!--Overlay Menu-->
+  <!--<div class="menu">-->
+  <!--</div>-->
+
   <div class="header">
     <div class="navbar">
       <div class="nav-item nav-item-left">
@@ -18,13 +28,6 @@
       <div class="nav-item nav-item-left">
         <span class="nav-title">Hello Kitty</span>
       </div>
-      <!-- Menu Button -->
-      <div class="menu-stack nav-item-right">
-        <span class="menu-stack__span"></span>
-        <span class="menu-stack__span"></span>
-        <span class="menu-stack__span"></span>
-      </div>
-
       <div class="nav-item nav-item-right">
         <div class="sign-up-login">
           <span>Login</span>
@@ -41,12 +44,21 @@
         </div>
         <input type="text" placeholder="Search here.."/>
       </div>
-      <div class="catbox search-item">
+      <div class="catbox search-item hide-sm-down">
         <span class="cat cat--active">All</span>
         <span class="cat">Socks</span>
         <span class="cat">Dynamite</span>
         <span class="cat">Syringes</span>
         <div class="cat-underline"></div>
+      </div>
+      <div class="dropdown-catbox hide-sm-up">
+        <div class="drop-cat-title"><i class="fa fa-angle-down"></i></div>
+        <div class="drop-cat-list">
+          <div class="drop-cat drop-cat--active">All</div>
+          <div class="drop-cat">Socks</div>
+          <div class="drop-cat">Dynamite</div>
+          <div class="drop-cat">Syringes</div>
+        </div>
       </div>
     </div>
 
@@ -58,21 +70,6 @@
       <p>and reach your customers.</p>
     </div>
   </div>
-    <div class="searchbar">
-      <div class="searchbox search-item">
-        <div class="searchbox-icon">
-          <i class="fa fa-search"></i>
-        </div>
-        <input type="text" placeholder="Search here.."/>
-      </div>
-      <div class="catbox search-item">
-        <span class="cat cat--active">All</span>
-        <span class="cat">Socks</span>
-        <span class="cat">Dynamite</span>
-        <span class="cat">Syringes</span>
-        <div class="cat-underline"></div>
-      </div>
-    </div>
 
   <div style="height: 30vh; width: 80vw;"></div>
    <!--Card 1-->
