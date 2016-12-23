@@ -28,7 +28,7 @@ a{
   /*min-height: 100vh;*/
   width: 100%;
   overflow: hidden;
-  background: url('bg1.jpg');
+  background: url('bg1_edit.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -160,7 +160,7 @@ a{
   bottom: 0px;
   height: 10px;
   width: 70px;
-  background: #0097A7;
+  background: #673AB7;
   transition:  left 0.4s cubic-bezier(.17,.67,.17,.88),
     width 0.4s cubic-bezier(.17,.67,.17,.88);
 }
@@ -180,7 +180,7 @@ a{
   /*cursor: pointer;*/
 }
 .drop-cat-title:hover{
-  color: #0097A7;
+  color: #673AB7;
 }
 .dropdown-catbox--active .drop-cat-title{
   transform: rotateZ(180deg);
@@ -210,36 +210,50 @@ a{
 }
 
 .drop-cat:hover{
-  border-color:#0097A7;
+  border-color:#673AB7;
 }
 
 .drop-cat--active{
-  border-color:#0097A7;
+  border-color:#673AB7;
 }
 
 
 .description{
   font-size: 2em;
   color: #fff;
-  padding: 10%;
   text-shadow: 2px 2px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 .button{
   text-shadow: none;
-  color: #0097A7;
-  background: #fff;
+  background: #673AB7;
+  color: #fff;
   padding: 15px 12px;
   border-radius: 0px;
+  border: 2px solid #fff;
   font-size: 0.8em;
   text-transform: uppercase;
   transition: cubic-bezier(.17,.67,.17,.88) all 0.4s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .button:hover{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.button2{
+  text-shadow: none;
+  color: #fff;
+  background: none;
+  padding: 15px 12px;
+  border-radius: 0px;
+  border: 2px solid #fff;
+  font-size: 0.8em;
+  margin-right:10px;
+  text-transform: uppercase;
+  transition: cubic-bezier(.17,.67,.17,.88) all 0.4s;
+}
+
+.button2:hover{
 }
 
 .menu{
@@ -272,7 +286,7 @@ a{
 }
 
 .menu__item:hover{
-  color: #0097A7;
+  color: #673AB7;
 }
 
 .menu__blank{
