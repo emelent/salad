@@ -1,5 +1,6 @@
 # Web Salad #
 
+[live-demo](https://emelent.github.io/salad)
 ## This is just a collection of some complete and incomplete web components ##
 
 ### Run ###
